@@ -1,6 +1,12 @@
 {
   "version": 2,
-  "rewrites": [
-    { "source": "/backend/api/:path*", "destination": "/api/:path*" }
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "public/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/login", "dest": "/public/login.html" },
+    { "src": "/css/(.*)", "dest": "/public/css/$1" },
+    { "src": "/(.*)", "dest": "/public/$1", "has": [{ "type": "host", "value": ".*" }], "continue": true }
   ]
 }
