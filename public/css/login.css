@@ -17,14 +17,15 @@ body {
   color: #1c2440;
 }
 
-/* Background gradient full screen like screenshot */
+/* Background gradient full screen */
 .background-gradient {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(circle at 0% 0%, #6b4bff 0, #6639ff 20%, transparent 55%),
-              radial-gradient(circle at 100% 100%, #ff4fa3 0, #ff6ec7 25%, transparent 55%),
-              linear-gradient(135deg, #4b3cff, #ff4fa3);
+  background:
+    radial-gradient(circle at 0% 0%, #6b4bff 0, #6639ff 20%, transparent 55%),
+    radial-gradient(circle at 100% 100%, #ff4fa3 0, #ff6ec7 25%, transparent 55%),
+    linear-gradient(135deg, #4b3cff, #ff4fa3);
 }
 
 /* Center card */
