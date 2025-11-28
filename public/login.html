@@ -5,7 +5,7 @@
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- CSS from /public/css/login.css -->
+  <!-- CSS -->
   <link rel="stylesheet" href="/css/login.css" />
 
   <!-- Poppins font -->
@@ -96,7 +96,7 @@
       <div class="social-row">
         <button class="social-btn">
           <span class="social-icon">
-            <!-- Google icon -->
+            <!-- Google -->
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M21.6 12.23c0-.78-.07-1.53-.2-2.25H12v4.26h5.4a4.6 4.6 0 01-2 3.02v2.5h3.24c1.9-1.75 2.96-4.33 2.96-7.53z" fill="#4285F4"/>
               <path d="M12 22c2.7 0 4.96-.9 6.61-2.44l-3.24-2.5c-.9.6-2.05.96-3.37.96-2.59 0-4.78-1.75-5.57-4.1H3.08v2.58A9.997 9.997 0 0012 22z" fill="#34A853"/>
@@ -109,7 +109,7 @@
 
         <button class="social-btn">
           <span class="social-icon">
-            <!-- Facebook icon -->
+            <!-- Facebook -->
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M13 22v-7h3l.5-4H13V8.5c0-1.16.32-1.95 2-1.95h1.6V3.1C16.27 3.04 15.3 3 14.2 3 11.4 3 9.5 4.66 9.5 8.1V11H6v4h3.5v7h3.5z" fill="#1877F2"/>
             </svg>
@@ -118,7 +118,7 @@
         </button>
       </div>
 
-      <!-- Sign up text (you can later link to signup.html) -->
+      <!-- Sign up text -->
       <p class="signup-text">
         Don't have an account?
         <a href="#" id="signupLink">Sign up</a>
@@ -126,52 +126,7 @@
     </div>
   </div>
 
-  <script>
-    // Toggle password visibility
-    const passwordInput = document.getElementById('password');
-    const togglePassword = document.getElementById('togglePassword');
-
-    togglePassword.addEventListener('click', () => {
-      const type = passwordInput.type === 'password' ? 'text' : 'password';
-      passwordInput.type = type;
-    });
-
-    // Login submit -> backend /api/auth/login
-    const form = document.getElementById('loginForm');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const body = {
-        username: document.getElementById('username').value.trim(),
-        password: document.getElementById('password').value,
-        remember: document.getElementById('rememberMe').checked
-      };
-
-      try {
-        const res = await fetch('/api/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body)
-        });
-
-        const data = await res.json();
-        if (!res.ok) {
-          alert(data.message || 'Login failed');
-          return;
-        }
-
-        if (data.token && body.remember) {
-          localStorage.setItem('auth_token', data.token);
-        }
-
-        alert('Login successful');
-        // Example redirect:
-        // window.location.href = '/dashboard.html';
-      } catch (err) {
-        console.error(err);
-        alert('Something went wrong. Please try again.');
-      }
-    });
-  </script>
+  <!-- JS -->
+  <script src="/js/login.js"></script>
 </body>
 </html>
